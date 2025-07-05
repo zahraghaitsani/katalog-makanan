@@ -14,7 +14,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="deskripsi" class="form-label">Deskripsi</label>
+            <label for="deskripsi" class="form-label">Deskripsi (maks. 255 karakter)</label>
             <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required>{{ $menu->deskripsi }}</textarea>
         </div>
 

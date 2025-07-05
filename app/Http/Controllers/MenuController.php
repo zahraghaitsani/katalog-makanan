@@ -19,7 +19,7 @@ class MenuController extends Controller
     public function store(Request $request) {
         $validated = $request->validate([
             'nama' => 'required',
-            'deskripsi' => 'required',
+            'deskripsi' => 'required|max:255',
             'harga' => 'required|numeric',
             'gambar' => 'image|mimes:jpg,jpeg,png|max:2048'
         ]);
@@ -39,7 +39,7 @@ class MenuController extends Controller
     public function update(Request $request, Menu $menu) {
         $validated = $request->validate([
             'nama' => 'required',
-            'deskripsi' => 'required',
+            'deskripsi' => 'required|max:255',
             'harga' => 'required|numeric',
             'gambar' => 'image|mimes:jpg,jpeg,png|max:2048'
         ]);

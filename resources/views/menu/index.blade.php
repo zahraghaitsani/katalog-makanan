@@ -56,8 +56,13 @@
 
 <div class="container py-4">
     <h2 class="mb-4 fw-bold">Daftar Menu</h2>
-    <a href="{{ route('menu.create') }}" class="btn btn-primary mb-4">Tambah Menu</a>
 
+    {{-- Tampilkan tombol "Tambah Menu" jika user adalah admin --}}
+    @if(auth()->user() && auth()->user()->role === 'admin')
+        <a href="{{ route('menu.create') }}" class="btn btn-primary mb-4">Tambah Menu</a>
+    @endif
+
+    {{-- Tampilkan pesan sukses --}}
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
@@ -72,6 +77,9 @@
                         <p class="card-text">{{ \Illuminate\Support\Str::limit($menu->deskripsi, 100) }}</p>
                         <p class="card-text fw-bold text-dark">Rp {{ number_format($menu->harga, 0, ',', '.') }}</p>
                     </div>
+
+                    {{-- Hanya admin yang bisa edit dan hapus --}}
+                    @if(auth()->user() && auth()->user()->role === 'admin')
                     <div class="card-footer d-flex justify-content-between">
                         <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
@@ -80,6 +88,7 @@
                             <button onclick="return confirm('Yakin hapus menu ini?')" class="btn btn-danger btn-sm">Hapus</button>
                         </form>
                     </div>
+                    @endif
                 </div>
             </div>
         @endforeach

@@ -51,7 +51,7 @@
 <div class="container">
     <div class="hero-section">
         <div class="hero-title">Selamat Datang di Warteg Worldwide (WWw)</div>
-        <div class="hero-subtitle">Nikmati berbagai menu lokal dari berbagai belahan dunia!</div>
+        <div class="hero-subtitle">Nikmati banyak menu lokal dari berbagai belahan dunia!</div>
         @guest
         <a href="{{ route('login') }}" class="btn btn-ww me-2">Login</a>
         <a href="{{ route('register') }}" class="btn btn-ww">Daftar</a>

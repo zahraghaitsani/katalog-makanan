@@ -3,7 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 
-Route::get('/', fn() => redirect()->route('menu.index'));
+Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect()->route('menu.index'); 
+    }
+    return view('welcome'); 
+});
 
 Auth::routes();
 

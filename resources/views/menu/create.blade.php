@@ -1,7 +1,47 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<style>
+    body {
+        background-color: #ffffff;
+        color: #040621;
+    }
+
+    .form-label {
+        font-weight: 600;
+    }
+
+    .form-control:focus {
+        border-color: #040621;
+        box-shadow: 0 0 0 0.2rem rgba(4, 6, 33, 0.25);
+    }
+
+    .btn-success {
+        background-color: #040621;
+        border-color: #040621;
+    }
+
+    .btn-success:hover {
+        background-color: #2c2d6b;
+        border-color: #2c2d6b;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+    h2 {
+        font-weight: bold;
+        color: #040621;
+    }
+
+    .img-thumbnail {
+        border-radius: 8px;
+    }
+</style>
+
+<div class="container py-4">
     <h2 class="mb-4">Tambah Menu</h2>
 
     <form action="{{ route('menu.store') }}" method="POST" enctype="multipart/form-data">
